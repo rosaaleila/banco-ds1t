@@ -1,17 +1,34 @@
 package br.senai.sp.jandira.model;
 
+import br.senai.sp.jandira.lista.TipoConta;
+
 public class Conta {
 	
-	public String tipo;
+	private TipoConta tipo;
 	private String numero;
-	public String numeroAgencia;
-	public String titular;
+	private String numeroAgencia;
+	public Cliente titular;
 	private double saldo;
 	
 	// utilizar o mesmo n do atributo é boa pratica
-	public Conta(String numeroConta, String tipoConta) {
+	public Conta(String numeroConta) {
 		numero = numeroConta;
-		tipo = tipoConta;
+	}
+	
+	public void setTipo(TipoConta tipo) {
+		this.tipo = tipo;
+	}
+	
+	public TipoConta getTipo() {
+		return tipo;
+	}
+	
+	public void setNumeroAgencia(String numeroAgencia) {
+		this.numeroAgencia = numeroAgencia;
+	}
+	
+	public String getNumeroAgencia() {
+		return numeroAgencia;
 	}
 	
 	public void depositar(double valorDeposito) {
@@ -44,7 +61,6 @@ public class Conta {
 		} else {
 			System.out.println("Não foi possível realizar a transação.");
 		}
-		
 	}
 	
 	public void exibirDetalhes() {
