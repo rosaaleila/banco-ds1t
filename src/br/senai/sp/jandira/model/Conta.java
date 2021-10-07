@@ -6,13 +6,21 @@ public class Conta {
 	
 	private TipoConta tipo;
 	private String numero;
-	private String numeroAgencia;
-	public Cliente titular;
+	private Agencia agencia;
+	private Cliente cliente;
 	private double saldo;
 	
 	// utilizar o mesmo n do atributo é boa pratica
 	public Conta(String numeroConta) {
 		numero = numeroConta;
+	}
+	
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
 	}
 	
 	public void setTipo(TipoConta tipo) {
@@ -23,12 +31,12 @@ public class Conta {
 		return tipo;
 	}
 	
-	public void setNumeroAgencia(String numeroAgencia) {
-		this.numeroAgencia = numeroAgencia;
+	public void setAgencia(Agencia agencia) {
+		this.agencia = agencia;
 	}
 	
-	public String getNumeroAgencia() {
-		return numeroAgencia;
+	public Agencia getAgencia() {
+		return agencia;
 	}
 	
 	public void depositar(double valorDeposito) {
@@ -66,13 +74,17 @@ public class Conta {
 	public void exibirDetalhes() {
 		System.out.println();
 		System.out.println("---------------------");
-		System.out.printf("Titular: %s\n", titular);
+		System.out.printf("Titular: %s\n", cliente.getNome());
 		System.out.printf("Número: %s\n", numero);
-		System.out.printf("Agência: %s\n", numeroAgencia);
+		System.out.printf("Agência: %s\n", agencia.getNumero());
+		System.out.printf("Cidade: %s\n", agencia.getCidade());
+		System.out.printf("Gerente: %s\n", agencia.getNomeGerente());
+		System.out.printf("Telefone: %s\n", agencia.getTelefone());
 		System.out.printf("Tipo: %s\n", tipo);
 		System.out.printf("Saldo: %s\n", saldo);
 		System.out.println("---------------------");
 		System.out.println();
 	}
+	
 	
 }
